@@ -35,7 +35,7 @@ create_user() {
 set_timezone() {
   [ -z "$TZ_" ] && return
   cp -f /usr/share/zoneinfo/$TZ /etc/localtime
-  dpkg-reconfigure --frontend noninteractive tzdata
+  #dpkg-reconfigure --frontend noninteractive tzdata
 }
 
 grant_access_to_video_devices() {
