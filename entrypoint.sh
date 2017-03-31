@@ -32,12 +32,6 @@ create_user() {
   chown ${SKYPE_USER}:${SKYPE_USER} -R /home/${SKYPE_USER}
 }
 
-set_timezone() {
-  [ -z "$TZ_" ] && return
-  cp -f /usr/share/zoneinfo/$TZ /etc/localtime
-  dpkg-reconfigure --frontend noninteractive tzdata
-}
-
 grant_access_to_video_devices() {
   for device in /dev/video*
   do
@@ -68,7 +62,6 @@ case "$1" in
     ;;
   skype)
     create_user
-    set_timezone
     grant_access_to_video_devices
     launch_skype $@
     ;;
