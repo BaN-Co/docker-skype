@@ -34,8 +34,8 @@ create_user() {
 
 set_timezone() {
   [ -z "$TZ_" ] && return
-  #cp -f /usr/share/zoneinfo/$TZ /etc/localtime
-  #dpkg-reconfigure --frontend noninteractive tzdata
+  ln -fs /usr/share/zoneinfo/$TZ_ /etc/localtime
+  dpkg-reconfigure --frontend noninteractive tzdata
 }
 
 grant_access_to_video_devices() {
@@ -67,9 +67,9 @@ case "$1" in
     uninstall_skype
     ;;
   skype)
+    set_timezone
     create_user
     grant_access_to_video_devices
-    set_timezone
     launch_skype $@
     ;;
   *)
