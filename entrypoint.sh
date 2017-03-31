@@ -34,7 +34,7 @@ create_user() {
 
 set_timezone() {
   [ -z "$TZ_" ] && return
-  cp -f /usr/share/zoneinfo/$TZ /etc/localtime
+  #cp -f /usr/share/zoneinfo/$TZ /etc/localtime
   #dpkg-reconfigure --frontend noninteractive tzdata
 }
 
