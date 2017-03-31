@@ -69,6 +69,7 @@ case "$1" in
   skype)
     create_user
     grant_access_to_video_devices
+    set_timezone
     launch_skype $@
     ;;
   *)
